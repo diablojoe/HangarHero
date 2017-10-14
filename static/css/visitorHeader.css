@@ -1,0 +1,59 @@
+body,
+input,
+button,
+select,
+option,
+textarea,
+label {
+    font-family: 'Roboto', sans-serif;
+}
+input,
+button,
+select,
+option,
+textarea {
+    font-size: 100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+button {
+    margin: 10px;
+}
+input {
+    margin: 0 auto;
+}
+#headcontainer {
+    color: white;
+    background: blue;
+    height: 15%;
+}
+#logo {
+    float: left;
+    background: blue;
+    font-size: 40px;
+    font-style: oblique;
+    color: #FFF;
+    text-align: center;
+    padding: 0 20px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    /* align horizontal */
+    align-items: center;
+    /* align vertical */
+}
+#actions {
+    float: right;
+    background: blue;
+    height: 100%;
+    text-align: center;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    /* align horizontal */
+    align-items: center;
+    /* align vertical */
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--<script src='http://betterjs.org/build/better.js'></script> -->
+<script src='/static/js/three.min.js'></script>
+<script src='/static/js/OrbitControls.js'></script>
+<script src='/static/js/threex.collider.js'></script>
+<script src='/static/js/threex.collidersystem.js'></script>
+<script src='/static/js/threex.colliderhelper.js'></script>
+<script src="/static/js/ColladaLoader.js"></script>
+<script src="/static/js/EventsControls.js"></script>
+<script src='/static/js/OBJExporter.js'></script>
+<script src='/static/js/render.js'></script>
+
+<!-- Include JQUERY Widgets -->
+<link href="/static/css/jquery-ui.css" rel="stylesheet">
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/jquery-ui.js"></script>
+
+<script src="/static/js/queen3d.js"></script>
+<style>
+    #canvas {
+        width: 80%;
+        height: 70%;
+        float: left;
+    }
+    
+    #accordion {
+        width: 20%;
+        height: 70%;
+        float: right;
+    }
+    
+    #slider {
+        clear: both;
+    }
+
+</style>
+
+<body data-brackets-id='15' style='margin: 0px; background-color: #bbbbbb; overflow: hidden;'>
+    <div data-brackets-id='16' id="canvas">
+    </div>
+    <div data-brackets-id='17' id="accordion">
+    </div>
+    <div data-brackets-id='18' id="slider"></div>
+    <button data-brackets-id='19' id="save" onclick="save()">Save</button>
+    <div data-brackets-id='20' id="navigation">
+        <button data-brackets-id='21' id="previous" onclick="previous()">Previous Day</button>
+        <button data-brackets-id='22' id="next" onclick="next()">Next Day</button>
+    </div>
+    <script data-brackets-id='23'>
+        var stringdate = {{.date}}
+        var hangarId = {{.hangar}};
+        var time = new Date(stringdate);
+        var scene = init(hangarId);
+        var activeNames = [];
+        $.get("/api/renderinstance/" + hangarId + "$" + time.toISOString(), function(data, status) {
+ 
+
+        });
+        $("#slider").slider({
+            max: 24,
+            step: .25
+        });
+        $('#slider').slider({
+            change: function(event, ui) {
+                //clear the accordion
+                console.log($("#accordion"));
+                $("#accordion").empty();
+                console.log($("#accordion"));
+                $("#accordion").accordion("refresh");
+                clear(scene);
+                //figure out the time we want
+                var hour = Math.floor(ui.value);
+                var minfrac = ui.value - hour;
+                var minutes = fracToMin(minfrac);
+                time.setHours(hour);
+                time.setMinutes(minutes);
+                $.get("/api/renderinstance/" + hangarId + "$" + time.toISOString(), function(data, status) {
+                    savedata = JSON.parse(data);
+                    var hangarDefinition = savedata.Hangar.Definition;
+                    addFloor(scene, hangarDefinition);
+
+                    if (savedata.AClines != null) {
+
+                        for (var i = 0; i < savedata.AClines.length; i++) {
+                            add3d(scene, savedata.AClines[i].Instance.ModelInfo.Dae.DaeLocation, savedata.AClines[i].Instance.ModelInfo.Name, savedata.AClines[i].Id, savedata.AClines[i].Position, savedata.AClines[i].Rotation, true);
+                            activeNames.push("AC" + savedata.AClines[i].Id);
+                        }
+                    }
+                    if (savedata.EQlines != null) {
+                        for (var i = 0; i < savedata.EQlines.length; i++) {
+                            add3d(scene, savedata.EQlines[i].Instance.ModelInfo.Dae.DaeLocation, savedata.EQlines[i].Instance.ModelInfo.Name, savedata.EQlines[i].Id, savedata.EQlines[i].Position, savedata.EQlines[i].Rotation, false);
+                            activeNames.push("EQ" + savedata.EQlines[i].Id);
+                        }
+                    }
+                });
+            }
+        });
+        $("#accordion").accordion({
+            heightStyle: "fill"
+        });
+        var startloc = dateToFrac(time);
+        $( "#slider" ).slider( "option", "value", startloc );
+        
+        
+    </script>
+</body>

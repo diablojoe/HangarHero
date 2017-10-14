@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Example Page</title>
+	<link href="/static/css/jquery-ui.css" rel="stylesheet">
+    
+</head>
+<body>
+    Registration number:<br>
+            <input id="regnumber" type="text"><br>
+            <button onclick="findreg()">Search</button>
+<!-- Tabs -->
+<h2 class="demoHeaders">Tabs</h2>
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">Aircraft</a></li>
+		<li><a href="#tabs-2">Ownner</a></li>
+		<li><a href="#tabs-3">Stats</a></li>
+	</ul>
+	<div id="tabs-1">
+        <div>
+            <span>Registration Number: </span>
+            <span id="myspan"></span><br>
+            <span>Make: </span>
+            <span id="make"></span><br>
+            <span>Model: </span>
+            <span id="model"></span><br>
+            <span>Serial Number: </span>
+            <span id="sernumber"></span><br>
+            <span>Type: </span>
+            <span id="type"></span><br>
+        </div>
+    </div>
+	<div id="tabs-2">
+        <div>
+            <span>Name: </span>
+            <span id="name"></span><br>
+            <span>Street: </span>
+            <span id="street"></span><br>
+            <span>City: </span>
+            <span id="city"></span><br>
+            <span>County: </span>
+            <span id="county"></span><br>
+            <span>State: </span>
+            <span id="state"></span><br>
+            <span>Zip: </span>
+            <span id="zip"></span><br>
+            <span>Country: </span>
+            <span id="Country"></span><br>     
+        </div>
+    </div>
+	<div id="tabs-3">
+    
+    </div>
+</div>
+
+
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/jquery-ui.js"></script>
+<script>
+    $( "#tabs" ).tabs();
+</script>
+    <script>
+        function findreg(){
+            var input = document.getElementById("regnumber");
+            var regnumber = input.value;
+            console.log(regnumber);
+            $.ajax({
+                url: '/api/aircraft/' + regnumber,
+                success: function (data) {
+                    var acInfo = JSON.parse(data);
+                    console.log(acInfo.Nnumber);
+                    document.getElementById("myspan").textContent=acInfo.Nnumber;
+                    document.getElementById("make").textContent=acInfo.ManufacturerName;
+                    document.getElementById("model").textContent=acInfo.Model;
+                    document.getElementById("type").textContent=acInfo.TypeAircraft;
+                    document.getElementById("sernumber").textContent=acInfo.SerialNumber;
+                    
+                    document.getElementById("name").textContent=acInfo.Name;
+                    document.getElementById("street").textContent=acInfo.Street;
+                    document.getElementById("city").textContent=acInfo.City;
+                    document.getElementById("county").textContent=acInfo.County;
+                    document.getElementById("state").textContent=acInfo.State;
+                    document.getElementById("zip").textContent=acInfo.ZipCode;
+                    document.getElementById("country").textContent=acInfo.Country;
+                    
+                },
+                error: function (err) {
+                    console.log('Error', err);
+                    if (err.status === 0) {
+                        alert('Failed to load data/basic.json.\nPlease run this example on a server.');
+                    }
+                    else {
+                        alert('Failed to load data/basic.json.');
+                    }
+                }
+            });
+                
+        }
+            
+    </script>
+    
+</body>
+</html>

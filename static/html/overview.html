@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hangar Queen Overview</title>
+    </head>
+    <body>
+        <header>
+            <!-- Include Required Prerequisites -->
+            <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+            <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css" />
+
+            <!-- Include Date Range Picker -->
+            <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+            <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+            <!-- Include charts Prerequisites -->
+            <script src="/js/vis.js"></script>
+            <link href="/css/vis.css" rel="stylesheet" type="text/css" />
+            
+            
+            
+        </header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html">About</a>
+            <a href="index.html">Blog</a>
+        </nav>
+        <section>
+            <input type="text" name="daterange" value="01/01/2015 1:30 PM - 01/01/2015 2:00 PM" />
+            <div id="visualization"></div>
+            <script type="text/javascript">
+                var d = new Date();
+                d.setDate(d.getDate() + 1);
+                var timeline;
+                var items;
+                
+                
+                $(function() {
+                    $('input[name="daterange"]').daterangepicker(
+                    {
+                        locale: {
+                          format: 'YYYY-MM-DD'
+                        },
+                        "timePicker": true,
+                        "timePicker24Hour": true,
+                        startDate: new Date(),
+                        endDate: d
+                    }, 
+                    function(start, end, label) {
+                        timeline.setWindow(start,end);
+                    });
+                });
+                
+                //ajax call for first set
+/*                $.ajax({
+                    url: '../resources/data/basic.json',
+                    success: function (data) {
+
+                        // DOM element where the Timeline will be attached
+                        var container = document.getElementById('visualization');
+
+                        // Create a DataSet (allows two way data-binding)
+                        items = new vis.DataSet(data);
+
+                        // Configuration for the Timeline
+                        var options = {
+                            start: new Date(),
+                            end: d,
+                            editable: true,
+                            showCurrentTime: true
+                        };
+
+                        // Create a Timeline
+                        timeline = new vis.Timeline(container, items, options);
+                    },
+                    error: function (err) {
+                        console.log('Error', err);
+                        if (err.status === 0) {
+                            alert('Failed to load data/basic.json.\nPlease run this example on a server.');
+                        }
+                        else {
+                            alert('Failed to load data/basic.json.');
+                        }
+                    }
+                });*/
+               
+                
+                // create a dataset with items
+                // we specify the type of the fields `start` and `end` here to be strings
+                // containing an ISO date. The fields will be outputted as ISO dates
+                // automatically getting data from the DataSet via items.get().
+                var items = new vis.DataSet({
+                    type: { start: 'ISODate', end: 'ISODate' }
+                });
+
+                // add items to the DataSet
+                items.add([
+                    {id: 1, content: 'item 1<br>start', start: '2014-01-23'},
+                    {id: 2, content: 'item 2', start: '2014-01-18'},
+                    {id: 3, content: 'item 3', start: '2014-01-21'},
+                    {id: 4, content: 'item 4', start: '2014-01-19', end: '2014-01-24'},
+                    {id: 5, content: 'item 5', start: '2014-01-28', type:'point'},
+                    {id: 6, content: 'item 6', start: '2014-01-26'}
+                ]);
+
+                var container = document.getElementById('visualization');
+                var options = {
+                    start: new Date(),
+                    end: d,
+                    editable: true,
+                    showCurrentTime: true
+                };
+
+                timeline = new vis.Timeline(container, items, options);
+
+                 timeline.on('rangechanged', function (properties) {
+                    console.log(properties.start);
+                    /*$.ajax({
+                        url: '../resources/data/basic.json',
+                        success: function (data) {
+                            // Create a DataSet (allows two way data-binding)
+                            items = new vis.DataSet(data);
+                        };
+                        error: function (err) {
+                            console.log('Error', err);
+                            if (err.status === 0) {
+                                alert('Failed to load data/basic.json.\nPlease run this example on a server.');
+                            }
+                            else {
+                                alert('Failed to load data/basic.json.');
+                            }
+                        }
+                    });
+                });
+                */
+            </script>
+        </section>
+        <footer>
+            <span>Coppyright 2016 Hangar Queen</span>
+        </footer>
+    </body>
+</html>

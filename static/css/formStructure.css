@@ -1,0 +1,14 @@
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85%;
+}
+#form {
+    border-radius: 25px;
+    border: 2px solid #0000FF;
+    padding: 20px;
+}
+#submit {
+    width: 100%;
+}
