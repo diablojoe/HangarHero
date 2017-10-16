@@ -8,6 +8,7 @@ import (
 	"github.com/caarlos0/env"
 	_ "github.com/go-sql-driver/mysql"
 	"log"
+	"fmt"
 )
 
 type config struct {
@@ -26,7 +27,27 @@ func init() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	dataSource := cfg.DbUser + ":" + cfg.DbPass + "@tcp(" + cfg.DbAddr + ":" + cfg.DbPort + ")/" + cfg.DbName + "charset=utf8"
+	//set up the defaults when env is not set
+	if cfg.DbUser == ""{
+		cfg.DbUser = "Hangar"
+	}
+	if cfg.DbPass == ""{
+		cfg.DbPass = "Hero"
+	}
+	if cfg.DbAddr == ""{
+		cfg.DbAddr = "127.0.0.1"
+	}
+	if cfg.DbPort == ""{
+		cfg.DbPort = "3306"
+	}
+	if cfg.DbName == ""{
+		cfg.DbName = "hangar"
+	}
+
+	//docker run --detach --name=test-mysql -e "MYSQL_ROOT_PASSWORD=mypassword" -e "MYSQL_DATABASE=hangar" -e "MYSQL_USER=Hangar" -e "MYSQL_PASSWORD=Hero" mysql
+	connString := cfg.DbUser + ":" + cfg.DbPass + "@tcp(" + cfg.DbAddr + ":" + cfg.DbPort + ")/" + cfg.DbName + "?charset=utf8"
+	fmt.Println(connString)
+	dataSource := connString
 	//example: user:pass@tcp(172.17.0.2:3306)/queen?charset=utf8
 
 	orm.RegisterDriver("mysql", orm.DRMySQL)
