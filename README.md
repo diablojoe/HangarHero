@@ -1,6 +1,6 @@
-##Setting up the server
+## Setting up the server
 
-####Install Go
+#### Install Go
 
 https://github.com/moovweb/gvm
 
@@ -11,21 +11,21 @@ https://github.com/moovweb/gvm
 
 `gvm use go1.9`
 
-####Install bee (optional)
+#### Install bee (optional)
 
 
 `go get github.com/beego/bee`
  
-####Install Docker
+#### Install Docker
 
 https://www.docker.com/community-edition
 
-####Run My-SQL
+#### Run My-SQL
 
 `docker pull mysql`
 ```
 docker run --detach --name=test-mysql -e "MYSQL_ROOT_PASSWORD=mypassword" -e "MYSQL_DATABASE=hangar" -e "MYSQL_USER=Hangar" -e "MYSQL_PASSWORD=Hero" mysql
 ```
-####Run HH server
+#### Run HH server
 
 `bee run`
