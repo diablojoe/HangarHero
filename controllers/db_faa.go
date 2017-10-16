@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"HangarHero/models"
+	"HangarHero/utilities"
 	"encoding/json"
 	"fmt"
 	"github.com/astaxie/beego/orm"
@@ -108,7 +109,7 @@ func insertCodes(location string, c *MainController) (int64, int64) {
 		transactions++
 		if err != nil {
 			full, _ := json.Marshal(v)
-			anonError(err, "Insert code", string(full))
+			utilities.Papertrail(string(full), "Application")
 		}
 	}
 	o.Commit()
@@ -137,7 +138,7 @@ func updateCodes(location string, c *MainController) (int64, int64) {
 		transactions++
 		if err != nil {
 			full, _ := json.Marshal(v)
-			anonError(err, "Update code", string(full))
+			utilities.Papertrail(string(full), "Application")
 		}
 	}
 	o.Commit()
@@ -165,13 +166,13 @@ func insertACReport(location string, c *MainController) (int64, int64) {
 		err = o.Read(&tempModel)
 		if err != nil {
 			full, _ := json.Marshal(v)
-			anonError(err, "Update acModel get code", string(full))
+			utilities.Papertrail(string(full), "Application")
 		}
 		tempRecord.ACModelCode = &tempModel
 		_, err := o.Insert(&tempRecord)
 		if err != nil {
 			full, _ := json.Marshal(v)
-			anonError(err, "Update code", string(full))
+			utilities.Papertrail(string(full), "Application")
 		}
 		inserts++
 		transactions++
@@ -201,13 +202,13 @@ func updateACReport(location string, c *MainController) (int64, int64) {
 		err = o.Read(&tempModel)
 		if err != nil {
 			full, _ := json.Marshal(v)
-			anonError(err, "Update acModel get code", string(full))
+			utilities.Papertrail(string(full), "Application")
 		}
 		tempAc.ACModelCode = &tempModel
 		_, err := o.Update(&tempAc)
 		if err != nil {
 			full, _ := json.Marshal(v)
-			anonError(err, "Update code", string(full))
+			utilities.Papertrail(string(full), "Application")
 		}
 		inserts++
 		transactions++
