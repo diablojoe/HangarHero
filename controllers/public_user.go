@@ -114,13 +114,25 @@ func (c *MainController) AddUser() {
 			return
 		}
 		o.Commit()
-		//set up the payment session
-		m := make(map[string]string)
-		m["username"] = userdata.Email
-		m["userid"] = strconv.FormatInt(userdata.Id, 10)
-		m["timestamp"] = time.Now().String()
-		c.SetSession("hangarqueenpayment", m)
-		c.Redirect("/adduserpay", 302)
+		//send the verification email
+		mg := mailgun.NewMailgun("mg.hangarhero.com", "mgKey", "")
+		m := mg.NewMessage(
+			"HangarHero <verify@mg.hangarhero.com>",                                   // From
+			"Please verify your E-mail",                                               // Subject
+			"Please go to https://hangarhero.com/verify/"+userdata.Uuid+"  to verify", // Plain-text body
+			userdata.FirstName+" "+userdata.LastName+" <"+userdata.Email+">")          // Recipients (vararg list)
+		m.SetHtml("<html><p>Thank you for signing up for HangarHero! Click the link bellow to get started</p><a href='https://hangarhero.com/verify/" + userdata.Uuid + "'>Please click here to verify</a></html>")
+
+		_, _, err = mg.Send(m)
+
+		if err != nil {
+			o.Rollback()
+			errormap["Database Error"] = "Error Sending Email"
+			c.Data["errors"] = errormap
+			c.Render()
+			return
+		}
+		c.Redirect("/static/html/verifysent.html", 302)
 		return
 	}
 	c.Render()
