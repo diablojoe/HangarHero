@@ -29,7 +29,7 @@ func (c *MainController) Contact() {
 
 //AddUser creates anew account routed to "/adduser"
 func (c *MainController) AddUser() {
-	c.TplName = "adduserv2.tpl"
+	c.TplName = "adduser.tpl"
 	if c.Ctx.Input.Method() == "POST" {
 		firstname := c.GetString("firstname")
 		lastname := c.GetString("lastname")
