@@ -9,18 +9,13 @@ import (
 func init() {
 	//Public Access routes (public_user.go)
 	beego.Router("/", &controllers.MainController{}, "*:Home")
-	beego.Router("/company", &controllers.MainController{}, "*:Company")
-	beego.Router("/careers", &controllers.MainController{}, "*:Careers")
 	beego.Router("/contact", &controllers.MainController{}, "*:Contact")
 	beego.Router("/adduser", &controllers.MainController{}, "*:AddUser")
 	beego.Router("/login", &controllers.MainController{}, "*:Login")
 	beego.Router("/logout", &controllers.MainController{}, "*:Logout")
-	//beego.Router("/addbeta", &controllers.MainController{}, "*:AddBeta")
 	beego.Router("/verify/?:uuid", &controllers.MainController{}, "*:VerifyEmail")
 	beego.Router("/requestresetpassword", &controllers.MainController{}, "*:RequestResetPassword")
 	beego.Router("/resetpassword/?:uuid", &controllers.MainController{}, "*:ResetPassword")
-	//beego.Router("/blog/?:page", &controllers.MainController{}, "*:Blog")
-	//beego.Router("/blogpost/?:page", &controllers.MainController{}, "*:BlogPost")
 	//User Routes
 	//-Schedule Routes
 	//--User templated (schedule_user.go)

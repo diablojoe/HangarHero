@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"HangarHero/utilities"
+
 	"github.com/astaxie/beego/orm"
 	"github.com/astaxie/beego/validation"
 	"github.com/satori/go.uuid"
@@ -20,21 +21,9 @@ func (c *MainController) Home() {
 	c.Render()
 }
 
-//Company renders the homepage routed to "/"
-func (c *MainController) Company() {
-	c.TplName = "company.tpl"
-	c.Render()
-}
-
 //Contact renders the homepage routed to "/"
 func (c *MainController) Contact() {
 	c.TplName = "contact.tpl"
-	c.Render()
-}
-
-//Careers renders the homepage routed to "/"
-func (c *MainController) Careers() {
-	c.TplName = "careers.tpl"
 	c.Render()
 }
 
