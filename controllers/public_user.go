@@ -16,7 +16,7 @@ import (
 
 //Home renders the homepage routed to "/"
 func (c *MainController) Home() {
-	c.TplName = "indexv2.tpl"
+	c.TplName = "index.tpl"
 	c.Render()
 }
 

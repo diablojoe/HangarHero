@@ -1,167 +1,200 @@
-<!DOCTYPE HTML>
-<!--
-	Spatial by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-<html>
-	<head>
-		<title>HangarHero.com</title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-		<script src="/static/js/skel.min.js"></script>
-		<script src="/static/js/skel-layers.min.js"></script>
-		<script src="/static/js/init.js"></script>
-		<noscript>
-			<link rel="stylesheet" href="static/css/skel.css" />
-			<link rel="stylesheet" href="static/css/style.css" />
-			<link rel="stylesheet" href="static/css/style-xlarge.css" />
-		</noscript>
-	</head>
-	<body class="landing">
+<!DOCTYPE html>
+<html lang="en">
 
-		<!-- Header -->
-			<header id="header" class="alt">
-				<!--<h1><strong><a href="index.html">HangarHero.com</a></strong></h1>-->
-				<nav id="nav">
-					<ul>
-						<li><a href="/login">Log In</a></li>
-						<li><a href="/adduser">Sign Up</a></li>
-					</ul>
-				</nav>
-			</header>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Intuitive Hangar Planning Solutions. Organize ramp and hangar space. Schedule aircraft movements. Share your plans with the team.">
+    <meta name="author" content="HangarHero">
 
-		<!-- Banner -->
-			<section id="banner">
-				<h2 style="text-transform:none;">HangarHero.com</h2>
-				<p>Hangar Management Re-Imagined</p>
-				<ul class="actions">
-					<li><a href="/adduser" class="button special big">Get Started</a></li>
-				</ul>
-			</section>
+    <title>HangarHero</title>
 
-			<!-- One -->
-				<section id="one" class="wrapper style1">
-					<div class="container 75%">
-						<div class="row 200%">
-							<div class="6u 12u$(medium)">
-								<header class="major">
-									<h2>Intuitive tools made for busy schedules</h2>
-									<p>Schedule your aircraft. Visualize your hangar. Communicate your needs.</p>
-								</header>
-							</div>
-							<div class="6u$ 12u$(medium)">
-								<p>Hangar scheduling is the process of arranging, controlling, and optimizing space for an aircraft. It is usually a complicated process, but it doesn't have to be. HangarQueen's hangar scheduling feature allows you to see all hangar activities at a glance, and easily customize your schedule via drag and drop.</p>
-								<p>HangarQueen makes scheduling simple for its customers by identifying hangar slot availability and defining the hangar's capability. Any problems in the schedule can be visualized automatically. HangarQueen maximizes hangar utilization easier so you can visit the hangar anytime for whatever maintenance check your aircraft needs.</p>
-							</div>
-						</div>
-					</div>
-				</section>
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-			<!-- Two -->
-				<section id="two" class="wrapper style2 special">
-					<div class="container">
-						<header class="major">
-							<h2>Features</h2>
-							<p>What HangarQueen can do for you</p>
-						</header>
-						<div class="row 150%">
-							<div class="6u 12u$(xsmall)">
-								<div class="image fit captioned">
-									<img src="/static/img/pic02.jpg" alt="" />
-									<h3>Scheduling</h3>
-								</div>
-							</div>
-							<div class="6u$ 12u$(xsmall)">
-								<div class="image fit captioned">
-									<img src="/static/img/pic03.jpg" alt="" />
-									<h3>Visualization</h3>
-								</div>
-							</div>
-						</div>
-						<ul class="actions">
-							<li><a href="#" class="button special big">Sign Up</a></li>
-							<li><a href="#" class="button big">Sign In</a></li>
-						</ul>
-					</div>
-				</section>
+    <!-- MetisMenu CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.5.2/metisMenu.css">
 
-			<!-- Three -->
-				<section id="three" class="wrapper style1">
-					<div class="container">
-						<header class="major special">
-							<h2>Mauris vulputate dolor</h2>
-							<p>Feugiat sed lorem ipsum magna</p>
-						</header>
-						<div class="feature-grid">
-							<div class="feature">
-								<div class="image rounded"><img src="/static/img/pic04.jpg" alt="" /></div>
-								<div class="content">
-									<header>
-										<h4>Communication</h4>
-									</header>
-									<p>With a real-time visualization of the hangar, HangarQueen gives you the ability to share your hangar with your employees and/or customers so they can see where aircraft are supposed to be.</p>
-								</div>
-							</div>
-							<div class="feature">
-								<div class="image rounded"><img src="/static/img/pic05.jpg" alt="" /></div>
-								<div class="content">
-									<header>
-										<h4>Pricing</h4>
-									</header>
-									<p>HangarQueen offers simple and transparent pricing. You don't have to worry about hidden fees and long-term contracts.</p>
-								</div>
-							</div>
-							<div class="feature">
-								<div class="image rounded"><img src="/static/img/pic06.jpg" alt="" /></div>
-								<div class="content">
-									<header>
-										<h4>Documentation</h4>
-									</header>
-									<p>Learn more about how to make the most out of HangarQueen scheduling and visualization features. Access the Knowledgebase and Quickstart Guide for your perusal/reading pleasure. </p>
-								</div>
-							</div>
-							<div class="feature">
-								<div class="image rounded"><img src="/static/img/pic07.jpg" alt="" /></div>
-								<div class="content">
-									<header>
-										<h4>Demo</h4>
-									</header>
-									<p>A video demonstration of the key features of HangarQueen can be found here.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/lumen/bootstrap.min.css">
 
-			<!-- Four -->
-				<section id="four" class="wrapper style3 special">
-					<div class="container">
-						<header class="major">
-							<p>Have any questions?</p>
-						</header>
-						<ul class="actions">
-							<li><a href="#" class="button special big">Get in touch</a></li>
-						</ul>
-					</div>
-				</section>
+    <!-- Custom Fonts -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="container">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-facebook"></a></li>
-						<li><a href="#" class="icon fa-twitter"></a></li>
-						<li><a href="#" class="icon fa-instagram"></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; HangarHero.com</li>
-					</ul>
-				</div>
-			</footer>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      .navbar {
+          margin-bottom: 0px;
+      }
+      .bg {
+        background: url('/static/img/banner.jpg') no-repeat center center fixed;
+        position: fixed;
+        width: 100%;
+        height: 100vh; /*same height as jumbotron */
+        top:0;
+        left:0;
+        z-index: -1;
+        background-size: cover;
+      }
 
-	</body>
-</html>
+      .jumbotron {
+        height: 70vh;
+        color: white;
+        text-shadow: #444 0 1px 1px;
+        background:transparent;
+        background-size: cover;
+      }
+
+
+    </style>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-84812424-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+</head>
+
+<body>
+  <div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">HangarHero</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+              <li><a href="/contact">Contact</a></li>
+              <li><a target="_blank" href="http://blog.hangarhero.com">News</a></li>
+              <li><a href="/adduser">Sign Up</a></li>
+              <li><a href="/login">Log In</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+      <div class="bg"></div>
+      <div class="jumbotron">
+        <div class="container">
+          <div id="page-wrapper">
+            <div class="row">
+              <div class="col-md-7">
+                <h1>Intuitive Hangar Planning Solutions</h1>
+                <p class="lead" style="color:black">Organize ramp and hangar space. </p>
+                <p class="lead" style="color:black">Schedule aircraft movements.</p>
+              </div>
+              <div class="col-md-5">
+                <a href="/adduser"><img src="/static/img/free_trial.png" class="img-responsive"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div id="page-wrapper">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-12">
+                  <h1 class="text-center" id="learnmore">Drag and Drop Scheduling</h1>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <h2 class="text-center">Book aircraft arrivals and departures with a powerful interactive timeline.  Track activity at a glance and adjust movements and timing effortlessly.</h2>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <img src="/static/img/scheduling.png" class="img-responsive">
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="row">
+            <div class="col-md-6">
+              <img src="/static/img/spacemanagement.png" class="img-responsive">
+            </div>
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-12">
+                  <h1 class="text-center">Organize in 3D space</h1>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <h2 class="text-center">Use our extensive database of aircraft and equipment models to arrange your work and storage spaces visually.  Generate maps linked with your timeline to plan complex movements with ease.</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-12">
+                  <h1 class="text-center">Coordinate with your entire team</h1>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <h2 class="text-center">Always up-to-date schedules and layout maps available on any smartphone or tablet.  Keep your team members on the same page even as plans are changing.</h2>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <img src="/static/img/communication.png" class="img-responsive">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <a href="/adduser"><img src="/static/img/free_trial.png" class="img-responsive center-block"></a>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="navbar navbar-bottom">
+            <p class="text-center"><a href="/static/html/privacypolicy.html">Privacy Policy</a> &copy; HangarHero.com <a href="/static/html/termsofservice.html">Terms of Service</a> </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script>
+      var jumboHeight = $('.jumbotron').outerHeight();
+      var navHeight = $('.navbar-header').outerHeight();
+      function parallax(){
+          var scrolled = $(window).scrollTop();
+          $('.bg').css('height', (jumboHeight-scrolled) +  navHeight + 'px');
+      }
+      parallax();
+      $(window).scroll(function(e){
+          parallax();
+      });
+    </script>
+  </body>
+  </html>
