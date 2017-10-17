@@ -83,18 +83,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-              <li><a href="/company">Company</a></li>
               <li><a href="/contact">Contact</a></li>
-              <li><a href="/careers">Careers</a></li>
               <li><a target="_blank" href="http://blog.hangarhero.com">News</a></li>
               <li><a href="/adduser">Sign Up</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log In<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="/login">Manager Log In</a></li>
-                  <li><a href="/viewer/login">Viewer Log In</a></li>
-                </ul>
-              </li>
+              <li><a href="/login">Log In</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -108,7 +100,6 @@
                 <h1>Intuitive Hangar Planning Solutions</h1>
                 <p class="lead" style="color:black">Organize ramp and hangar space. </p>
                 <p class="lead" style="color:black">Schedule aircraft movements.</p>
-                <p class="lead" style="color:black">Share your plans with the team.</p>
               </div>
               <div class="col-md-5">
                 <a href="/adduser"><img src="/static/img/free_trial.png" class="img-responsive"></a>
