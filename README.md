@@ -15,7 +15,7 @@ https://github.com/moovweb/gvm
 
 
 `go get github.com/beego/bee`
- 
+
 #### Install Docker
 
 https://www.docker.com/community-edition
@@ -24,7 +24,7 @@ https://www.docker.com/community-edition
 
 `docker pull mysql`
 ```
-docker run --detach --name=test-mysql -e "MYSQL_ROOT_PASSWORD=mypassword" -e "MYSQL_DATABASE=hangar" -e "MYSQL_USER=Hangar" -e "MYSQL_PASSWORD=Hero" mysql
+sudo docker run -d --name=test-mysql -p 3306:3306 -e "MYSQL_ROOT_PASSWORD=mypassword" -e "MYSQL_DATABASE=hangar" -e "MYSQL_USER=Hangar" -e "MYSQL_PASSWORD=Hero" mysql:latest
 ```
 #### Run HH server
 
