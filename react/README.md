@@ -1,23 +1,25 @@
-mobx-react-boilerplate
-=====================
+# React MobX React-Router 4 Boilerplate
 
-A minimal application that combines [MobX](https://mobxjs.github.io/mobx) with [React](https://facebook.github.io/react).
-Supports ES6 and JSX compilation through babel.
+### :tada: React, React-Router@next, MobX and Webpack 2.
+## [Demo](http://boilerplate.mhaagens.me)
 
-* Support for React-Hot-Loader can be found in the [`with-hot-loader`](https://github.com/mobxjs/mobx-react-boilerplate/tree/with-hot-loader) branch
-* For a typescript based boilerplate, see [`mobx-react-typescript-boilerplate`](https://github.com/mobxjs/mobx-react-typescript-boilerplate)
-* To use MobX with create-react-app and decorators, [react-app-rewired](https://github.com/timarney/react-app-rewired/tree/master/packages/react-app-rewire-mobx) or this example using [custom-react-scripts](https://github.com/codylindley/mobx-react)
+Just run `npm install` and `npm start`, then go to localhost:3000 to start developing.
+To build, run `npm run build`, and to preview run `npm run preview`, then go
+to localhost:1234 for the minified production bundle.
 
+#### Async component loading
+Components are now loaded async with react-router-loader and the store is injected via MobX Provider. 
+If you've downloaded this boilerplate before remember to run `npm install` again.
 
-### Run the example
+#### Read this if you've been using an earlier version of this boilerplate
 
-```
-npm install
-npm start
-```
+* 05/03/17 - Hot reloadable MobX stores
+* 04/04/17 - Upgraded to React Router 4 @ latest
+* 01/31/17 - Upgraded to React Router 4 Beta
+* 01/28/17 - Routes are now loaded through [Lazy-Route](https://github.com/mhaagens/lazy-route).
 
-Browser should open automatically. Otherwise, navigate to the URL reported in the terminal
+### Todo
 
-### Credits
-
-* [Mendix](http://github.com/mendix) for providing the opportunity to battle test this approach (we're hiring!).
+- [X] Async loading of components
+- [X] Data fetching example
+- [X] Protected Routes

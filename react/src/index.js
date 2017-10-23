@@ -1,28 +1,32 @@
+import("./styles/main.scss");
 import React from "react";
 import { render } from "react-dom";
-import DevTools from "mobx-react-devtools";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from "mobx-react";
+import { AppContainer } from "react-hot-loader";
+import { rehydrate, hotRehydrate } from "rfx-core";
 
-import TodoList from "./components/TodoList";
-import TodoListModel from "./models/TodoListModel";
-import TodoModel from "./models/TodoModel";
+import { isProduction } from "./utils/constants";
+import App from "./components/App";
+import stores from "./stores/stores";
 
-const store = new TodoListModel();
+const store = rehydrate();
 
-render(
-  <div>
-    <DevTools />
-    <TodoList store={store} />
-  </div>,
-  document.getElementById("root")
-);
+const renderApp = Component => {
+	render(
+		<AppContainer>
+			<Router>
+				<Provider store={isProduction ? store : hotRehydrate()}>
+					<App />
+				</Provider>
+			</Router>
+		</AppContainer>,
+		document.getElementById("root")
+	);
+};
 
-store.addTodo("Get Coffee");
-store.addTodo("Write simpler code");
-store.todos[0].finished = true;
+renderApp(App);
 
-setTimeout(() => {
-  store.addTodo("Get a cookie as well");
-}, 2000);
-
-// playing around in the console
-window.store = store;
+if (module.hot) {
+	module.hot.accept(() => renderApp(App));
+}
