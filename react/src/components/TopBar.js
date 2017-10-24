@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import { Link, withRouter } from "react-router-dom";
+import ModalLogin from "./ModalLogin";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import TopNav from "./TopNav";
 import Button from "./ui/Button";
@@ -25,10 +27,9 @@ export default class TopBar extends Component {
 		return (
 			<div className="topbar">
 				<TopNav location={this.props.location} />
-				<Button
-					onClick={this.authenticate.bind(this)}
-					title={authenticated ? "Log out" : "Sign in"}
-				/>
+				<MuiThemeProvider>
+					<ModalLogin label="Login" />
+				</MuiThemeProvider>
 			</div>
 		);
 	}

@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import { Route, Link } from "react-router-dom";
@@ -21,6 +22,9 @@ export default class TopNav extends Component {
 		return (
 			<nav>
 				<ActiveLink activeOnlyWhenExact={true} to="/">Home</ActiveLink>
+				<ActiveLink activeOnlyWhenExact={true} to="/">Contact</ActiveLink>
+				<ActiveLink activeOnlyWhenExact={true} to="/">News</ActiveLink>
+				{!authenticated && <ActiveLink to="/">Sign Up</ActiveLink>}
 				{authenticated && <ActiveLink to="/posts">Posts</ActiveLink>}
 			</nav>
 		);

@@ -18,25 +18,24 @@ export default class Home extends Component {
 				<header>
 					<div className="hero-unit">
 						<div className="react-logo" />
-						<h1>React MobX React-Router 4 Boilerplate</h1>
+						<h1>Intuitive Hangar Planning Solutions</h1>
 					</div>
 					<div className="hero-subunit">
-						<h4>
-							A simple starting point for React with routing, data-fetching and state management!
-						</h4>
+						<h3>Organize ramp and hangar space.</h3>
+						<h3>Schedule aircraft movements.</h3>
 					</div>
 					<div className="github-buttons">
 						<a
-							href="https://github.com/mhaagens/react-mobx-react-router4-boilerplate"
+							href="https://github.com/diablojoe/HangarHero"
 							target="_blank"
 						>
-							Download from GitHub
+							Check us out on GitHub
 						</a>
 					</div>
 				</header>
 				<main>
 					<div className="section-header">
-						<h3>Included libraries</h3>
+						<h3>Features</h3>
 						<hr />
 					</div>
 					<div className="boilerplate-item">
@@ -58,8 +57,8 @@ export default class Home extends Component {
 						</div>
 					</div>
 					<MuiThemeProvider>
-    <MyAwesomeReactComponent />
-  </MuiThemeProvider>
+    				<MyAwesomeReactComponent />
+  				</MuiThemeProvider>
 					<div className="boilerplate-item">
 						<div className="boilerplate-logo mobx" />
 						<div className="boilerplate-item-content">

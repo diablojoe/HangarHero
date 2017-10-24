@@ -1,5 +1,6 @@
-import { observable, action } from "mobx";
+import {observable, action} from "mobx";
 import axios from "axios";
+import superagent from 'superagent'
 
 export default class AppState {
   @observable authenticated;
@@ -19,11 +20,11 @@ export default class AppState {
   }
 
   async fetchData(pathname, id) {
-    let { data } = await axios.get(
-      `https://jsonplaceholder.typicode.com${pathname}`
-    );
+    let {data} = await axios.get(`https://jsonplaceholder.typicode.com${pathname}`);
     console.log(data);
-    data.length > 0 ? this.setData(data) : this.setSingle(data);
+    data.length > 0
+      ? this.setData(data)
+      : this.setSingle(data);
   }
 
   @action setData(data) {
@@ -48,5 +49,20 @@ export default class AppState {
         resolve(this.authenticated);
       }, 0);
     });
+  }
+
+  @action
+  login() {
+    this.authenticated = false;
+    this.authenticating = true;
+    superagent.post('/api/pet').send({name: 'Manny', species: 'cat'}). // sends a JSON post body
+    set('X-API-Key', 'foobar').set('accept', 'json').then(projects => {
+      console.log(projects);
+
+      this.authenticating = false
+    }, error => {
+      console.log(error)
+      this.authenticated = true
+    })
   }
 }
